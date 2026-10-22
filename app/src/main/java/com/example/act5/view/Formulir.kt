@@ -4,12 +4,13 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DividerDefaults.Thickness
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -23,9 +24,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.act5.R
-
-
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,8 +47,8 @@ fun FormIsian(
                 value = "",
                 singleLine = true,
                 modifier = Modifier
-                    .padding(top = 20.dp)
-                        label = {Text(text = "Nama Lengkap")},
+                    .padding(top = 20.dp),
+                label = {Text(text = "Nama Lengkap")},
                 onValueChange = {},
             )
             HorizontalDivider(modifier = Modifier.border(
@@ -66,8 +64,29 @@ fun FormIsian(
                         )
                         Text(text = item)
                     }
-
                 }
+            }
+            HorizontalDivider(modifier = Modifier
+                .padding(20.dp)
+                .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
+            OutlinedTextField(
+                value = "",
+                singleLine = true,
+                modifier = Modifier
+                    .width(250.dp),
+                label = {Text(text = "Alamat")},
+                onValueChange = {},
+            )
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                modifier = Modifier.fillMaxWidth(1f)
+                    .padding(all = 25.dp),
+                onClick = OnSubmitBtnClick
+            ){
+                Text(stringResource(id = "Submit"))
             }
         }
     }
